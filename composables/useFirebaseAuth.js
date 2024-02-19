@@ -1,7 +1,8 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { signInWithEmailAndPassword } from 'firebase/auth'
-import { doc, setDoc} from 'firebase/firestore'
+import { doc, setDoc, getDoc } from 'firebase/firestore'
 import { v4 as uuid } from 'uuid'
+import { ROLES } from '@/utils/constants'
 
 export function useFirebaseAuth() {
   const { $auth, $firestore } = useNuxtApp()
@@ -12,6 +13,7 @@ export function useFirebaseAuth() {
 
   const createUser = async ({ rfc, companyEmail, userEmail, password, socialReason, legalRepresentative, legalPersonality, socialObject, phone, fiscalAddress }) => {
     loading.value = true
+    error.value = null
     try {
       const { user: responseCreateUser } = await createUserWithEmailAndPassword($auth, userEmail, password)
       const companyId = uuid()
@@ -28,28 +30,32 @@ export function useFirebaseAuth() {
         socialObject,
         fiscalAddress,
       })
-      const responseSaveUser = await setDoc(doc($firestore, 'users', responseCreateUser.uid), {
+      const _user = {
         id: responseCreateUser.uid,
         email: userEmail,
+        role: ROLES.PROVIDER,
         company_id: companyId,
         created_at: Date.now(),
-      })
-      user.value = responseSaveUser
+      }
+      await setDoc(doc($firestore, 'users', responseCreateUser.uid), _user)
+      user.value = _user
       router.push('/')
-    } catch (error) {
-      error.value = error
+    } catch (_error) {
+      error.value = _error
     }
     loading.value = false
   }
 
   const login = async ({ email, password }) => {
     loading.value = true
+    error.value = null
     try {
       const { user: responseSignInUser } = await signInWithEmailAndPassword($auth, email, password)
-      user.value = responseSignInUser
+      const userSnapshot = await getDoc(doc($firestore, 'users', responseSignInUser.uid))
+      user.value = userSnapshot.data()
       router.push('/')
-    } catch (error) {
-      error.value = error
+    } catch (_error) {
+      error.value = _error
     }
     loading.value = false
   }

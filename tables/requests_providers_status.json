@@ -1,0 +1,17 @@
+[
+    {
+        "description": "Documentacion en revisión",
+        "name": "DOCUMENTATION_IN_REVIEW",
+        "id": "DLoGhC5dpEd27aLB8Q0k"
+    },
+    {
+        "description": "Documentacion aprobada",
+        "name": "APPROVED_DOCUMENTATION",
+        "id": "DLoGhC5dpEd27aLB8Q0k"
+    },
+    {
+        "description": "Documentacion rechazada",
+        "name": "REJECTED_DOCUMENTATION",
+        "id": "DLoGhC5dpEd27aLB8Q0k"
+    }
+]

@@ -13,6 +13,8 @@ export default defineNuxtRouteMiddleware((to, from) => {
   if (user.value) {
     authenticated.value = true
   }
+  console.log(user.value);
+  console.log(authenticated.value);
 
   if (authenticated.value && routeNameWithoutAuth.includes(to.name)) {
     return navigateTo('/')
@@ -22,4 +24,5 @@ export default defineNuxtRouteMiddleware((to, from) => {
     abortNavigation()
     return navigateTo('/autenticacion/inicio-de-sesion')
   }
+  console.log('middleware');
 })

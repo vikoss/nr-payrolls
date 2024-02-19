@@ -1,0 +1,98 @@
+[
+    {
+      "required": true,
+      "multiple": true,
+      "name": "Acta constitutiva",
+      "description": "Acta constitutiva y su última modificación, tratándose de personas jurídicas colectivas; o acta de nacimiento, tratándose de personas físicas.",
+    },
+    {
+      "required": true,
+      "multiple": true,
+      "name": "Cédula de Identificación Fiscal",
+      "description": "Cédula de Identificación Fiscal e Inscripción en el Registro Federal de Contribuyentes, que señale el domicilio fiscal vigente, así como actividad preponderante al momento de la solicitud de registro. (Actualmente Constancia de Situación Fiscal) No mayor a 10 días naturales.",
+    },
+    {
+      "required": false,
+      "multiple": true,
+      "name": "Poder suficiente del representante legal",
+      "description": "Poder suficiente del representante legal, emitido por Fedatario Público.",
+    },
+    {
+      "required": true,
+      "multiple": true,
+      "name": "Identificación oficial",
+      "description": "Identificación oficial del propietario o del representante legal. (Vigente)",
+    },
+    {
+      "required": true,
+      "multiple": true,
+      "name": "Declaración fiscal anual del ejercicio inmediato anterior",
+      "description": "Declaración fiscal anual del ejercicio inmediato anterior o estados financieros del último ejercicio fiscal, dictaminados por contador público registrado en términos del Código Fiscal de la Federación; o los estados de cuenta bancarios, en los que se indiquen los movimientos realizados y el saldo al final del mes anterior a la fecha de solicitud de inscripción, para el caso de empresas de nueva constitución.",
+    },
+    {
+      "required": true,
+      "multiple": true,
+      "name": "Estados financieros del mes inmediato anterior",
+      "description": "Estados financieros del mes inmediato anterior a la fecha de solicitud de inscripción, acompañados de la Cédula Profesional del Contador Público que los emite.",
+    },
+    {
+      "required": true,
+      "multiple": true,
+      "name": "Fotografía reciente",
+      "description": "Dos fotografías recientes tamaño infantil a color, del propietario o representante legal.",
+    },
+    {
+      "required": true,
+      "multiple": true,
+      "name": "Carta compromiso ante el municipio de Nicolás Romero",
+      "description": "Carta compromiso ante el municipio de Nicolás Romero, Estado de México para actualizar la documentación o información presentada, así como para permitir la verificación de datos, documentos e instalaciones.",
+    },
+    {
+      "required": true,
+      "multiple": true,
+      "name": "Currículum de la empresa",
+      "description": "Currículum de la Empresa o Persona física",
+    },
+    {
+      "required": true,
+      "multiple": true,
+      "name": "Pago del impuesto sobre la renta del mes inmediato anterior",
+      "description": "Pago del impuesto sobre la renta del mes inmediato anterior a la fecha de solicitud de inscripción, con acuse de recibo del SAT, a través de Internet o recibo de pago ante institución bancaria.",
+    },
+    {
+      "required": true,
+      "multiple": true,
+      "name": "Comprobante de domicilio",
+      "description": "Comprobante de domicilio (luz, agua o predial).",
+    },
+    {
+      "required": true,
+      "multiple": true,
+      "name": "Escrito de Datos Bancarios",
+      "description": "Escrito de Datos Bancarios en donde conste Nombre del Banco, No. de Cuenta, Sucursal y Clabe Interbancaria.",
+    },
+    {
+      "required": true,
+      "multiple": true,
+      "name": "Artículo 74",
+      "description": "Manifestación por escrito donde bajo protesta de decir verdad se señalará que no se encuentra dentro de los supuestos mencionados por el artículo 74 de la Ley de Contratación Pública del Estado de México y Municipios.",
+    },
+    {
+      "required": true,
+      "multiple": true,
+      "name": "Conflicto de interés",
+      "description": "Manifestación por escrito bajo protesta de decir verdad, donde declare que no actualiza el supuesto de conflicto de interés previsto en la Ley de Responsabilidades Administrativas del Estado de México y Municipios.",
+    },
+    {
+      "required": false,
+      "multiple": true,
+      "name": "Documentación pertinente",
+      "description": "Documentación que se estime pertinente.",
+    },
+    {
+      "required": true,
+      "multiple": true,
+      "name": "Opinión de cumplimiento de obligaciones ante el SAT",
+      "description": "Opinión de cumplimiento de obligaciones ante el SAT (POSITIVO), no mayor a quince días naturales.",
+    }
+  ]

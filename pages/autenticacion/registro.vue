@@ -1,15 +1,13 @@
 <template>
   <div>
-    <v-card class="mx-auto px-6 py-8" max-width="344">
-      <v-card-item>
-        <v-card-title>
-          Inicia sesión
-        </v-card-title>
-        <v-card-subtitle>
-          Ingresa tu correo y contraseña
-        </v-card-subtitle>
-      </v-card-item>
-      <v-form @submit.prevent>
+    <h1 class="text-3xl font-medium mb-2 text-wine">
+      Crear una cuenta
+    </h1>
+    <h2 class="text-base text-black font-normal mb-10 tracking-wide">
+      Ingresa los siguientes datos
+    </h2>
+    <div class="max-w-md mx-auto">
+      <v-form @submit.prevent v-model="formStatus">
         <v-text-field
           v-model="form.rfc"
           :rules="[rules.required]"
@@ -66,17 +64,37 @@
           @click:append="showPassword = !showPassword"
           label="Confirmar contraseña"
         />
-        <v-btn type="submit" block class="mt-2" @click="createUser(form)">Entrar</v-btn>
+        <div class="mb-9">
+          <p v-show="error" class="text-red-error text-xs">
+            Lo sentimos, estamos teniendo problemas.
+          </p>
+        </div>
+        <v-btn
+          type="submit"
+          block
+          @click="formStatus && createUser(form)"
+        >
+          Registrarte
+        </v-btn>
       </v-form>
-    </v-card>
+      <p class="text-center text-base mt-5">
+        ¿Ya tienes una cuenta?
+        <nuxt-link class="hover:underline text-wine font-bold" to="/autenticacion/inicio-de-sesion">
+          Iniciar sesión
+        </nuxt-link>
+      </p>
+    </div>
   </div>
+  <loading :show="loading" />
 </template>
 
 <script>
 import { useFirebaseAuth } from '@/composables/useFirebaseAuth'
 import { required, password } from '@/utils/formValidations'
+import Loading from '~/components/Loading.vue'
 
 export default {
+  components: { Loading },
   setup() {
     const { createUser, error, loading  } = useFirebaseAuth()
     const config = useRuntimeConfig()
@@ -93,12 +111,16 @@ export default {
       socialObject: '',
       fiscalAddress: '',
     })
+    const formStatus = ref(null)
     const showPassword = ref(false)
 
     return {
       showPassword,
       form,
+      error,
+      loading,
       createUser,
+      formStatus,
       rules: {
         required,
         password,
