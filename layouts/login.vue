@@ -9,7 +9,7 @@
       <h1 class="text-white font-light text-4xl sm:text-6xl lg:absolute lg:bottom-36">
         Bienvenido
         <br> a
-        <strong class="font-bold">Proveedores</strong>
+        <strong class="font-bold">Nominas</strong>
         <br> Nicolás Romero
       </h1>
       <h2 class="text-white font-light text-base mt-5 sm:text-xl lg:absolute sm:bottom-24">

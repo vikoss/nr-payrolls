@@ -97,19 +97,16 @@ export default {
   components: { Loading },
   setup() {
     const { createUser, error, loading  } = useFirebaseAuth()
-    const config = useRuntimeConfig()
+    //const config = useRuntimeConfig()
     const form = reactive({
       rfc: '',
-      userEmail: computed(() => `${form.rfc}@${config.public.emailDomain}`),
-      companyEmail: '',
-      phone: '',
+      name: '',
+      firtSurname: '',
+      secondSurname: '',
+      employeeNumber: '',
+      email: '',
       password: '',
       passwordConfirmation: '',
-      socialReason: '',
-      legalRepresentative: '',
-      legalPersonality: '',
-      socialObject: '',
-      fiscalAddress: '',
     })
     const formStatus = ref(null)
     const showPassword = ref(false)

@@ -9,9 +9,9 @@
     <div class="max-w-md mx-auto">
       <v-form @submit.prevent>
         <v-text-field
-          v-model="form.rfc"
+          v-model="form.employeeNumber"
           :rules="[rules.required]"
-          label="RFC"
+          label="employeeNumber"
         />
         <v-text-field
           v-model="form.password"
@@ -36,7 +36,10 @@
       </v-form>
       <p class="text-center text-base mt-5">
         ¿No tienes cuenta?
-        <nuxt-link class="hover:underline text-wine font-bold" to="/autenticacion/registro">
+        <nuxt-link
+          class="hover:underline text-wine font-bold"
+          to="/autenticacion/registro"
+        >
           Registrate
         </nuxt-link>
       </p>
@@ -54,14 +57,13 @@ export default {
   components: { Loading },
   layout: 'login',
   setup() {
-    const { login, error, loading  } = useFirebaseAuth()
     const config = useRuntimeConfig()
-    //setPageLayout('login')
+    const { login, error, loading } = useFirebaseAuth()
 
     const form = reactive({
-      email: computed(() => `${form.rfc}@${config.public.emailDomain}`),
+      email: computed(() => `${form.employeeNumber}@${config.public.emailDomain}`),
       password: '',
-      rfc: '',
+      employeeNumber: '',
     })
 
     const showPassword = ref(false)
@@ -80,7 +82,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>
