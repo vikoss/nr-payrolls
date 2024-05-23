@@ -11,7 +11,7 @@
         <v-text-field
           v-model="form.employeeNumber"
           :rules="[rules.required]"
-          label="employeeNumber"
+          label="Número de empleado"
         />
         <v-text-field
           v-model="form.password"
@@ -34,15 +34,6 @@
           Entrar
         </v-btn>
       </v-form>
-      <p class="text-center text-base mt-5">
-        ¿No tienes cuenta?
-        <nuxt-link
-          class="hover:underline text-wine font-bold"
-          to="/autenticacion/registro"
-        >
-          Registrate
-        </nuxt-link>
-      </p>
     </div>
   </div>
   <loading :show="loading" />
