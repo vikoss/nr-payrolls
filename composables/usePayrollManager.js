@@ -16,7 +16,7 @@ export function usePayrollManager() {
 
     try {
       const { employeeNumber } = user.value
-      const data = await listAll(refStorage($storage, `${employeeNumber}/${year}`))
+      const data = await listAll(refStorage($storage, `NominasNR/${employeeNumber}/${year}`))
       const payrolls = []
       data.items.forEach(item => {
         payrolls.push({
