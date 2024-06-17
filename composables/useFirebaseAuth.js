@@ -1,6 +1,6 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { signInWithEmailAndPassword } from 'firebase/auth'
-import { doc, setDoc, getDoc } from 'firebase/firestore'
+import { doc, setDoc, getDoc, addDoc, collection } from 'firebase/firestore'
 import { v4 as uuid } from 'uuid'
 import { ROLES } from '@/utils/constants'
 
@@ -12,18 +12,15 @@ export function useFirebaseAuth() {
   const error = ref(null)
   const loading = ref(false)
 
-  const createUser = async ({
-    employeeNumber,
-    rfc,
-    fullName = '',
-  }) => {
+  const createUser = async ({ employeeNumber, rfc, fullName }) => {
     loading.value = true
     error.value = null
     try {
-      const email = `${employeeNumber}@${config.public.emailDomain}`
-      const password = rfc
-      const { user: responseCreateUser } = await createUserWithEmailAndPassword($auth, email, password)
-      const _user = {
+      let email = `${employeeNumber}@${config.public.emailDomain}`
+      let password = rfc
+      let { user: responseCreateUser } = await createUserWithEmailAndPassword($auth, email, password)
+      console.log(responseCreateUser.uid);
+      let _user = {
         id: responseCreateUser.uid,
         rfc,
         fullName,
@@ -32,6 +29,8 @@ export function useFirebaseAuth() {
         createdAt: Date.now(),
       }
       await setDoc(doc($firestore, 'users', responseCreateUser.uid), _user)
+      console.log(_user);
+      //await addDoc(collection($firestore, 'users'), _user)
       /* user.value = _user
       router.push('/') */
     } catch (_error) {
