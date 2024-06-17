@@ -10,9 +10,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
     'autenticacion-inicio-de-sesion',
   ]
 
-  if (user.value) {
-    authenticated.value = true
-  }
+  authenticated.value = !!user.value
 
   if (authenticated.value && routeNameWithoutAuth.includes(to.name)) {
     return navigateTo('/')
