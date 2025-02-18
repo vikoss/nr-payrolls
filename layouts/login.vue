@@ -10,7 +10,7 @@
         Bienvenido
         <br> a
         <strong class="font-bold">Nominas</strong>
-        <br> Nicolás Romero
+        <br> Tu Empresa
       </h1>
       <h2 class="text-white font-light text-base mt-5 sm:text-xl lg:absolute sm:bottom-24">
         Nos renovamos para ofrecerte
