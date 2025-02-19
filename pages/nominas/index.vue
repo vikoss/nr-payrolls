@@ -3,7 +3,7 @@
     <v-select
       v-model="year"
       label="Año"
-      :items="['2021', '2022', '2023', '2024']"
+      :items="['2021', '2022', '2023', '2024', '2025']"
     ></v-select>
     <v-btn
       block
